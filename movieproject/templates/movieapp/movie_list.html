@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Movie_list</title>
+    <link rel="stylesheet" href="{% static 'css/movie.css' %}">
+</head>
+<body>
+{% if movie_list %}
+
+<div align="center">
+    <h1>Movies List</h1>
+<table border="3">
+    <thead>
+    <th>RDATE</th>
+    <th>MOVIE_NAME</th>
+    <th>HERO</th>
+    <th>HEROINE</th>
+    <th>RATING</th>
+
+    </thead>
+    <tbody>
+    {% for mv in movie_list %}
+    <tr>
+    <td>{{mv.rdate}}</td>
+    <td>{{mv.movie_name}}</td>
+    <td>{{mv.hero}}</td>
+    <td>{{mv.heroine}}</td>
+    <td>{{mv.rating}}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</div>
+{% else %}
+<p>No Movie Found....</p>
+{% endif %}
+</body>
+</html>
